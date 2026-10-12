@@ -187,7 +187,9 @@ h2 {
     font-size: 1rem;
 }
 
-/* Tata Letak Kotak Materi */
+/* ==========================================
+   📚 PERBAIKAN WARNA KOTAK MATERI (style.css)
+   ========================================== */
 .grid-materi {
     display: grid;
     gap: 15px;
@@ -200,11 +202,36 @@ h2 {
 .materi-box {
     padding: 20px;
     border-radius: 12px;
+    transition: transform 0.2s;
 }
-.bg-blue { background-color: #eff6ff; border: 1px solid #bfdbfe; }
-.bg-red { background-color: #fef2f2; border: 1px solid #fca5a5; }
-.bg-blue h3 { color: #1d4ed8; }
-.bg-red h3 { color: #b91c1c; }
+.materi-box:hover {
+    transform: scale(1.02);
+}
+
+/* Kotak Biru (Penjumlahan) */
+.bg-blue { 
+    background-color: #eff6ff; 
+    border: 2px solid #bfdbfe; 
+}
+.bg-blue h3 { 
+    color: #1d4ed8; 
+}
+
+/* Kotak Merah Lembut (Pengurangan) - SUDAH DIPERBAIKI MAJU/MUNDUR */
+.bg-red { 
+    background-color: #fff5f5; /* Merah muda sangat lembut */
+    border: 2px solid #feb2b2; /* Garis tepi pink soft */
+}
+.bg-red h3 { 
+    color: #c53030; /* Tulisan judul merah tua agar jelas dibaca */
+}
+.bg-red .angka-materi {
+    color: #9b2c2c; /* Angka merah gelap berwujud kontras */
+}
+.bg-red .sub-materi {
+    color: #742a2a; /* Keterangan bawah berwarna cokelat kemerahan */
+}
+
 .angka-materi { font-size: 1.75rem; font-weight: 900; text-align: center; margin: 10px 0; color: #0f172a; }
 .sub-materi { font-size: 0.8rem; text-align: center; color: #475569; font-weight: 500; }
 
