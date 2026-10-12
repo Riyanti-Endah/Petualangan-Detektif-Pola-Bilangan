@@ -104,7 +104,7 @@ body {
 @media (min-width: 768px) {
     .main-content {
         padding: 40px;
-        margin-left: 280px; /* Memberi jarak agar tidak tertutup sidebar */
+        margin-left: 280px; /* Jarak agar tidak tertutup sidebar */
     }
 }
 .content-section {
@@ -188,7 +188,7 @@ h2 {
 }
 
 /* ==========================================
-   📚 PERBAIKAN WARNA KOTAK MATERI (style.css)
+   📚 KOTAK MATERI (SUDAH DIPERBAIKI NYAMAN DI MATA)
    ========================================== */
 .grid-materi {
     display: grid;
@@ -217,19 +217,19 @@ h2 {
     color: #1d4ed8; 
 }
 
-/* Kotak Merah Lembut (Pengurangan) - SUDAH DIPERBAIKI MAJU/MUNDUR */
+/* Kotak Merah Lembut / Pink Pastel (Pengurangan) */
 .bg-red { 
-    background-color: #fff5f5; /* Merah muda sangat lembut */
-    border: 2px solid #feb2b2; /* Garis tepi pink soft */
+    background-color: #fff5f5; 
+    border: 2px solid #feb2b2; 
 }
 .bg-red h3 { 
-    color: #c53030; /* Tulisan judul merah tua agar jelas dibaca */
+    color: #c53030; 
 }
 .bg-red .angka-materi {
-    color: #9b2c2c; /* Angka merah gelap berwujud kontras */
+    color: #9b2c2c; 
 }
 .bg-red .sub-materi {
-    color: #742a2a; /* Keterangan bawah berwarna cokelat kemerahan */
+    color: #742a2a; 
 }
 
 .angka-materi { font-size: 1.75rem; font-weight: 900; text-align: center; margin: 10px 0; color: #0f172a; }
