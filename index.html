@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Detektif Pola Bilangan</title>
+    <!-- Hubungkan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🗺️ SIDEBAR NAVIGASI (MENU) -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>🕵️‍♂️ DETEKTIF POLA</h1>
+            <p>Media Pembelajaran Interaktif</p>
+        </div>
+        <nav class="menu-list">
+            <button onclick="bukaMenu('beranda')" id="btn-beranda" class="menu-btn menu-active">🏠 Beranda</button>
+            <button onclick="bukaMenu('petunjuk')" id="btn-petunjuk" class="menu-btn">📜 Petunjuk</button>
+            <button onclick="bukaMenu('tujuan')" id="btn-tujuan" class="menu-btn">🎯 Tujuan</button>
+            <button onclick="bukaMenu('materi')" id="btn-materi" class="menu-btn">📚 Materi</button>
+            <button onclick="bukaMenu('misi1')" id="btn-misi1" class="menu-btn">🧩 Misi 1: Kenal Pola</button>
+            <button onclick="bukaMenu('misi2')" id="btn-misi2" class="menu-btn">🔍 Misi 2: Angka Hilang</button>
+            <button onclick="bukaMenu('misi3')" id="btn-misi3" class="menu-btn">🚀 Misi 3: Bilangan Berikutnya</button>
+            <button onclick="bukaMenu('game')" id="btn-game" class="menu-btn">🎮 Game Interaktif</button>
+            <button onclick="bukaMenu('tantangan')" id="btn-tantangan" class="menu-btn">🤠 Tantangan</button>
+            <button onclick="bukaMenu('kuis')" id="btn-kuis" class="menu-btn">📝 Kuis Evaluasi</button>
+            <button onclick="bukaMenu('refleksi')" id="btn-refleksi" class="menu-btn">🤔 Refleksi</button>
+            <button onclick="bukaMenu('penghargaan')" id="btn-penghargaan" class="menu-btn">🏆 Penghargaan</button>
+        </nav>
+    </div>
+
+    <!-- 🏛️ AREA ISI KONTEN UTAMA -->
+    <div class="main-content">
+
+        <!-- 🏠 BERANDA -->
+        <div id="beranda" class="content-section card border-emerald">
+            <h2>🕵️‍♂️ PETUALANGAN DETEKTIF POLA BILANGAN</h2>
+            <p class="subtitle">Selamat datang di markas rahasia detektif matematika! Mari selesaikan teka-teki pola angka.</p>
+            <div class="input-box">
+                <label>Masukkan Identitas Detektif:</label>
+                <input type="text" id="namaDetektif" placeholder="Nama Kamu" oninput="updateNama()">
+            </div>
+        </div>
+
+        <!-- 📜 PETUNJUK -->
+        <div id="petunjuk" class="content-section hidden card border-blue">
+            <h2>📜 Cara Menggunakan MPI</h2>
+            <ul class="list-styled">
+                <li>Gunakan <b>Menu di sebelah kiri</b> untuk berpindah halaman.</li>
+                <li>Pelajari <b>Materi</b> terlebih dahulu agar kamu tahu rahasia pola bilangan.</li>
+                <li>Selesaikan <b>Misi 1, 2, dan 3</b> untuk mengumpulkan poin dasar.</li>
+                <li>Mainkan <b>Game</b> dan hadapi <b>Tantangan</b> seru.</li>
+                <li>Uji kemampuanmu di menu <b>Kuis</b> dan lihat <b>Penghargaan</b> kamu!</li>
+            </ul>
+        </div>
+
+        <!-- 🎯 TUJUAN -->
+        <div id="tujuan" class="content-section hidden card border-indigo">
+            <h2>🎯 Tujuan Pembelajaran</h2>
+            <p>Setelah menyelesaikan petualangan ini, kamu diharapkan mampu:</p>
+            <ol class="list-numbered">
+                <li>Menemukan keteraturan atau aturan pada suatu pola bilangan secara tepat.</li>
+                <li>Mengisi suku atau angka yang hilang pada barisan bilangan dengan benar.</li>
+                <li>Memprediksi bilangan berikutnya dari susunan angka yang diberikan.</li>
+            </ol>
+        </div>
+
+        <!-- 📚 MATERI -->
+        <div id="materi" class="content-section hidden card border-yellow">
+            <h2>📚 Konsep Pola Bilangan</h2>
+            <p>Pola bilangan adalah <b>susunan angka yang memiliki aturan tertentu</b> secara teratur.</p>
+            <div class="grid-materi">
+                <div class="materi-box bg-blue">
+                    <h3>➕ Pola Penjumlahan (Maju)</h3>
+                    <p class="angka-materi">2, 4, 6, 8, ...</p>
+                    <p class="sub-materi">Aturannya: Selalu ditambah 2 (+2)</p>
+                </div>
+                <div class="materi-box bg-red">
+                    <h3>➖ Pola Pengurangan (Mundur)</h3>
+                    <p class="angka-materi">15, 12, 9, 6, ...</p>
+                    <p class="sub-materi">Aturannya: Selalu dikurang 3 (-3)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧩 MISI 1 -->
+        <div id="misi1" class="content-section hidden card border-teal">
+            <h2>🧩 Misi 1: Mengenal Pola</h2>
+            <p class="soal">Lihat barisan angka ini: <b>5, 10, 15, 20</b>. Apa aturan polanya?</p>
+            <div class="btn-vertical-group">
+                <button onclick="jawabMisi(1, true)" class="choice-btn">A. Ditambah 5 (+5)</button>
+                <button onclick="jawabMisi(1, false)" class="choice-btn">B. Dikurang 2 (-2)</button>
+            </div>
+            <p id="feedback-misi1" class="feedback"></p>
+        </div>
+
+        <!-- 🔍 MISI 2 -->
+        <div id="misi2" class="content-section hidden card border-orange">
+            <h2>🔍 Misi 2: Menentukan Angka yang Hilang</h2>
+            <p class="soal">Isi titik-titik yang kosong: <b>3, 6, [ ? ], 12, 15</b></p>
+            <div class="input-horizontal-group">
+                <input type="number" id="input-misi2" class="input-number">
+                <button onclick="cekMisi2()" class="submit-btn bg-orange">Periksa</button>
+            </div>
+            <p id="feedback-misi2" class="feedback"></p>
+        </div>
+
+        <!-- 🚀 MISI 3 -->
+        <div id="misi3" class="content-section hidden card border-purple">
+            <h2>🚀 Misi 3: Menentukan Bilangan Berikutnya</h2>
+            <p class="soal">Berapa bilangan setelah angka 8? <b>20, 16, 12, 8, [ ? ]</b></p>
+            <div class="btn-vertical-group">
+                <button onclick="jawabMisi(3, false)" class="choice-btn">A. Angka 6</button>
+                <button onclick="jawabMisi(3, true)" class="choice-btn">B. Angka 4</button>
+            </div>
+            <p id="feedback-misi3" class="feedback"></p>
+        </div>
+
+        <!-- 🎮 GAME INTERAKTIF -->
+        <div id="game" class="content-section hidden card border-pink text-center">
+            <h2>🎮 Permainan Klik Angka Berurutan</h2>
+            <p>Klik tombol angka di bawah sesuai urutan kelipatan 3 (+3) mulai dari yang terkecil!</p>
+            <div class="target-indicator">Target Selanjutnya: <span id="target-game">3</span></div>
+            <div class="game-box">
+                <button onclick="mainGame(9)" class="game-btn">9</button>
+                <button onclick="mainGame(3)" class="game-btn">3</button>
+                <button onclick="mainGame(12)" class="game-btn">12</button>
+                <button onclick="mainGame(6)" class="game-btn">6</button>
+            </div>
+            <p id="feedback-game" class="feedback text-emerald"></p>
+        </div>
+
+        <!-- 🤠 TANTANGAN -->
+        <div id="tantangan" class="content-section hidden card border-amber">
+            <h2>🤠 Soal Kontekstual (Cerita)</h2>
+            <p class="soal">Ali menabung setiap hari Minggu. Minggu kesatu Rp2.000, Minggu kedua Rp4.000, Minggu ketiga Rp6.000. Berapa uang yang ditabung Ali pada Minggu kelima?</p>
+            <div class="btn-vertical-group">
+                <button onclick="jawabTantangan(false)" class="choice-btn">A. Rp8.000</button>
+                <button onclick="jawabTantangan(true)" class="choice-btn">B. Rp10.000</button>
+            </div>
+            <p id="feedback-tantangan" class="feedback"></p>
+        </div>
+
+        <!-- 📝 KUIS EVALUASI -->
+        <div id="kuis" class="content-section hidden card border-red">
+            <h2>📝 Evaluasi Akhir</h2>
+            <div class="quiz-container">
+                <div class="quiz-item">
+                    <p class="quiz-question">1. Berapakah nilai pola kelipatan 4 setelah angka 12? (4, 8, 12, ...)</p>
+                    <label><input type="radio" name="q1" value="salah"> 14</label><br>
+                    <label><input type="radio" name="q1" value="benar"> 16</label>
+                </div>
+                <div class="quiz-item">
+                    <p class="quiz-question">2. Lengkapi pola berikut: 30, 25, 20, ..., 10</p>
+                    <label><input type="radio" name="q2" value="benar"> 15</label><br>
+                    <label><input type="radio" name="q2" value="salah"> 12</label>
+                </div>
+            </div>
+            <button onclick="hitungKuis()" class="submit-btn bg-red">Kirim Jawaban Kuis</button>
+            <p id="feedback-kuis" class="quiz-score-display"></p>
+        </div>
+
+        <!-- 🤔 REFLEKSI -->
+        <div id="refleksi" class="content-section hidden card border-cyan text-center">
+            <h2>🤔 Refleksi Peserta Didik</h2>
+            <p>Bagaimana perasaanmu setelah bermain dan belajar pola bilangan hari ini?</p>
+            <div class="emoji-group">
+                <button onclick="pilihRefleksi('😊 Senang dan Paham!')">😊</button>
+                <button onclick="pilihRefleksi('😐 Bingung')">😐</button>
+                <button onclick="pilihRefleksi('😢 Sedih / Sulit')">😢</button>
+            </div>
+            <p id="feedback-refleksi" class="feedback-large text-cyan"></p>
+        </div>
+
+        <!-- 🏆 PENGHARGAAN -->
+        <div id="penghargaan" class="content-section hidden card border-yellow text-center">
+            <h2>🏆 Skor dan Lencana</h2>
+            <p>Berikut adalah hasil kerja kerasmu, Detektif!</p>
+            <div class="badge-card">
+                <p class="badge-title">Nama: <span id="badge-nama">Detektif</span></p>
+                <p class="badge-score">Skor Kuis: <span id="badge-skor">0</span>/100</p>
