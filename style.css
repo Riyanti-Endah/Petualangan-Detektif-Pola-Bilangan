@@ -1,0 +1,330 @@
+/* ==========================================
+   ⚙️ PENGATURAN DASAR & RESET
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #fef3c7;
+    color: #334155;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsif untuk Layar Laptop / Komputer (Tampilan Samping) */
+@media (min-width: 768px) {
+    body {
+        flex-direction: row;
+    }
+}
+
+/* ==========================================
+   🗺️ DESAIN MENU SIDEBAR (Kiri)
+   ========================================== */
+.sidebar {
+    width: 100%;
+    background-color: #059669;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+@media (min-width: 768px) {
+    .sidebar {
+        width: 260px;
+        min-height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar-header h1 {
+    font-size: 1.25rem;
+    color: #fde047;
+    letter-spacing: 1px;
+    font-weight: 900;
+}
+.sidebar-header p {
+    font-size: 0.75rem;
+    color: #d1fae5;
+}
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+@media (min-width: 768px) {
+    .menu-list {
+        max-height: none;
+    }
+}
+.menu-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.menu-btn:hover {
+    background-color: #047857;
+}
+.menu-active {
+    background-color: #3b82f6 !important;
+    font-weight: bold;
+}
+
+/* ==========================================
+   🏛️ DESAIN HALAMAN UTAMA & KONTEN
+   ========================================== */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .main-content {
+        padding: 40px;
+        margin-left: 280px; /* Memberi jarak agar tidak tertutup sidebar */
+    }
+}
+.content-section {
+    display: block;
+}
+.hidden {
+    display: none !important;
+}
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+.text-center { text-align: center; }
+
+/* Warna-warni Bingkai Halaman Spesifik */
+.border-emerald { border: 4px solid #34d399; }
+.border-blue { border: 4px solid #60a5fa; }
+.border-indigo { border: 4px solid #818cf8; }
+.border-yellow { border: 4px solid #fbbf24; }
+.border-teal { border: 4px solid #2dd4bf; }
+.border-orange { border: 4px solid #fb923c; }
+.border-purple { border: 4px solid #c084fc; }
+.border-pink { border: 4px solid #f472b6; }
+.border-amber { border: 4px solid #f59e0b; }
+.border-red { border: 4px solid #f87171; }
+.border-cyan { border: 4px solid #22d3ee; }
+
+/* Elemen Teks */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+.subtitle {
+    color: #475569;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.soal {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.list-styled, .list-numbered {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    color: #334155;
+}
+.list-styled li, .list-numbered li {
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   🎮 DESAIN ELEMEN INTERAKTIF & INPUT
+   ========================================== */
+/* Kotak Input Nama Beranda */
+.input-box {
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #fef3c7;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #fcd34d;
+}
+.input-box label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+}
+.input-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Tata Letak Kotak Materi */
+.grid-materi {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+}
+@media (min-width: 600px) {
+    .grid-materi { grid-template-columns: 1fr 1fr; }
+}
+.materi-box {
+    padding: 20px;
+    border-radius: 12px;
+}
+.bg-blue { background-color: #eff6ff; border: 1px solid #bfdbfe; }
+.bg-red { background-color: #fef2f2; border: 1px solid #fca5a5; }
+.bg-blue h3 { color: #1d4ed8; }
+.bg-red h3 { color: #b91c1c; }
+.angka-materi { font-size: 1.75rem; font-weight: 900; text-align: center; margin: 10px 0; color: #0f172a; }
+.sub-materi { font-size: 0.8rem; text-align: center; color: #475569; font-weight: 500; }
+
+/* Kelompok Pilihan Ganda Misi Vertikal */
+.btn-vertical-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 320px;
+    margin-top: 10px;
+}
+.choice-btn {
+    text-align: left;
+    padding: 12px 15px;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.choice-btn:hover { 
+    background-color: #e2e8f0; 
+    transform: scale(1.02);
+}
+
+/* Grup Input Angka Misi 2 */
+.input-horizontal-group {
+    display: flex;
+    gap: 10px;
+    max-width: 320px;
+    margin-top: 10px;
+}
+.input-number {
+    border: 2px solid #fb923c;
+    padding: 8px;
+    border-radius: 12px;
+    text-align: center;
+    width: 100px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Tombol Submit Utama */
+.submit-btn {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.bg-orange { background-color: #f97316; }
+.bg-orange:hover { background-color: #ea580c; }
+.bg-red { background-color: #dc2626; }
+.bg-red:hover { background-color: #b91c1c; }
+
+/* Teks Feedback Jawaban */
+.feedback { font-weight: bold; margin-top: 15px; font-size: 1rem; }
+
+/* Area Modul Mini Game */
+.target-indicator { font-size: 1.25rem; font-weight: bold; color: #db2777; margin-bottom: 20px; }
+.game-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+.game-btn {
+    background-color: #fce7f3;
+    color: #9d174d;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 2px solid #fbcfe8;
+    border-radius: 16px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.game-btn:hover { 
+    background-color: #fbcfe8; 
+    transform: scale(1.1);
+}
+
+/* Kontainer Kuis */
+.quiz-container { display: flex; flex-direction: column; gap: 20px; text-align: left; margin: 15px 0; }
+.quiz-item { background-color: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.quiz-question { font-weight: bold; margin-bottom: 10px; color: #1e293b; }
+.quiz-item label { font-weight: 500; cursor: pointer; margin-left: 5px; display: inline-block; margin-bottom: 5px; }
+
+.quiz-score-display { font-size: 1.5rem; font-weight: 900; text-align: center; margin-top: 20px; color: #dc2626; }
+
+/* Area Refleksi */
+.emoji-group { display: flex; justify-content: center; gap: 24px; font-size: 3rem; margin: 20px 0; }
+.emoji-group button { background: none; border: none; cursor: pointer; transition: transform 0.2s; }
+.emoji-group button:hover { transform: scale(1.3); }
+.feedback-large { font-size: 1.25rem; font-weight: bold; margin-top: 20px; }
+.text-cyan { color: #0891b2; }
+
+/* ==========================================
+   🏆 PANEL BADGE & LENCANA (PENGHARGAAN)
+   ========================================== */
+.badge-card { 
+    background-color: #fef9c3; 
+    max-width: 350px; 
+    margin: 0 auto; 
+    padding: 25px; 
+    border-radius: 20px; 
+    border: 3px solid #fef08a; 
+    box-shadow: 0 4px 10px rgba(250, 204, 21, 0.2);
+}
+.badge-title { font-size: 1.125rem; font-weight: bold; color: #713f12; }
+.badge-score { font-size: 2rem; font-weight: 900; color: #ca8a04; margin: 15px 0; }
+.badge-icon { font-size: 4.5rem; margin: 15px 0; }
+.badge-status { font-size: 1.05rem; font-weight: bold; color: #475569; }
+
+/* Efek Animasi Melompat Lencana Emas */
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
